@@ -175,6 +175,35 @@
             background: #f9f9f9;
         }
 
+        .file-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sharepoint-btn {
+            padding: 6px 10px;
+            background: #0078d4;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .sharepoint-btn:hover {
+            background: #106ebe;
+        }
+
         .pdf-tag {
             width: fit-content;
             margin-bottom: 3px;
@@ -227,27 +256,21 @@
         <div class="tree-container">
 <section class="category-item">
 <div class="category-header active" onclick="toggle(this)">
-<span>SICHERHEITSDATENBLÄTTER GMBH (19)</span>
+<span>SICHERHEITSDATENBLÄTTER GMBH (1)</span>
 <span class="arrow">▼</span>
 </div>
 <ul class="submenu">
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_AdBlue_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">1. SDS_AdBlue_aral_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Benzin_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">2. SDS_Benzin_aral_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">3. SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">4. SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Granit_S%C3%A4gekettenhaft%C3%B6l_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">5. SDS_Granit_Sägekettenhaftöl_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_H%C3%A4nde_desinfektion_gel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">6. SDS_Hände_desinfektion_gel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_K%C3%BChlfl%C3%BCssigkeit_HKF_15.1_MW_65_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">7. SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">8. SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Oregon_Kettenhaftoel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">9. SDS_Oregon_Kettenhaftoel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Presto_Spr%C3%BChfett_Weis_400_ML_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">10. SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">11. SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">12. SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">13. SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Universalprimer_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">14. SDS_Universalprimer_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Zement_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">15. SDS_Zement_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_arecal_Marker_USD_Basic_DE.PDF" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">16. SDS_arecal_Marker_USD_Basic_DE.PDF</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_%C3%96lbinder_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">17. SDS_Ölbinder_DE.pdf</span></a></li>
+<li>
+    <div class="file-item">
+        <div class="file-row">
+            <div class="file-main-content">
+                <span class="pdf-tag">PDF</span>
+                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAXg7j82AuqS7mt6jvzCV4HAR-0HfOANDhpJpi69juRv40?e=dC6QqL" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Trockengleit spray_PTFE 300_ml_Würth_DE.pdf</a>
+            </div>
+            <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQDJRkC1epwPQq4c1f3BAg6NASQx_ilFrKx-QTDz6SqK3_E?e=LWbWsA" class="sharepoint-btn" target="_blank" rel="noopener">Skrót karty</a>
+        </div>
+    </div>
+</li>
 </ul>
 </section>
 </div>
@@ -287,7 +310,7 @@
         });
 
         document.getElementById("downloadBtn").addEventListener("click", function () {
-            const links = document.querySelectorAll(".file-item");
+            const links = document.querySelectorAll(".file-main-content a.product-name");
             const confirmed = confirm("Alle Sicherheitsdatenblätter offline herunterladen? Dies kann einen Moment dauern.");
 
             if (!confirmed) {
