@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENPROM Sicherheitsdatenblätter</title>
+<style>
+        :root {
+            --primary: #0078d4;
+            --danger: #d13438;
+            --success: #107c10;
+            --bg: #f3f2f1;
+            --text: #323130;
+            --muted: #605e5c;
+            --line: #edebe9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .update-info {
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 15px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .update-value {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .acknowledgement-link {
+            width: 100%;
+            max-width: 550px;
+            min-height: 80px;
+            margin-bottom: 20px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            border: 1px solid #0d620d;
+            border-radius: 12px;
+            background: var(--success);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .acknowledgement-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 550px;
+            padding: 15px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .emergency-btn,
+        .download-all-btn {
+            width: 100%;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .emergency-btn {
+            margin-bottom: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #a4262c;
+            background: var(--danger);
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .download-all-btn {
+            margin-bottom: 15px;
+            padding: 14px;
+            border: 0;
+            background: #005a9e;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .search-box {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .category-item {
+            margin-bottom: 8px;
+        }
+
+        .category-header {
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: #faf9f8;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .category-header.active {
+            background: #f3f2f1;
+        }
+
+        .arrow {
+            flex: 0 0 auto;
+            color: var(--muted);
+            transition: transform 0.3s;
+        }
+
+        .category-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            display: none;
+            margin: 0 0 0 5px;
+            padding: 0;
+            border-left: 2px solid var(--primary);
+            list-style: none;
+        }
+
+        .category-header.active + .submenu {
+            display: block;
+        }
+
+        .file-item {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #f3f2f1;
+            color: var(--text);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .file-item:hover,
+        .file-item:focus {
+            background: #f9f9f9;
+        }
+
+        .pdf-tag {
+            width: fit-content;
+            margin-bottom: 3px;
+            padding: 2px 4px;
+            border-radius: 3px;
+            background: var(--danger);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .product-name {
+            overflow-wrap: anywhere;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            color: #a19f9d;
+            text-align: center;
+            font-size: 11px;
+        }
+</style>
+</head>
+<body>
+<div class="update-info">
+<span>Letzte Aktualisierung der Datenbank:</span>
+<span class="update-value">07.07.2026</span>
+</div>
+
+    <a class="acknowledgement-link" href="#" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
+<span class="acknowledgement-icon" aria-hidden="true">✓</span>
+<span>KENNTNISNAHME DER SICHERHEITSDATENBLÄTTER</span>
+</a>
+
+    <main class="app-container">
+<a href="tel:112" class="emergency-btn">NOTRUF: 112</a>
+
+        <button id="downloadBtn" class="download-all-btn">ALLE KARTEN HERUNTERLADEN (OFFLINE)</button>
+
+        <input type="text" id="search" class="search-box" placeholder="Produkt oder Dateiname suchen...">
+
+        <div class="tree-container">
+<section class="category-item">
+<div class="category-header active" onclick="toggle(this)">
+<span>SICHERHEITSDATENBLÄTTER GMBH (19)</span>
+<span class="arrow">▼</span>
+</div>
+<ul class="submenu">
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_AdBlue_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">1. SDS_AdBlue_aral_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Benzin_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">2. SDS_Benzin_aral_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">3. SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">4. SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Granit_S%C3%A4gekettenhaft%C3%B6l_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">5. SDS_Granit_Sägekettenhaftöl_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_H%C3%A4nde_desinfektion_gel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">6. SDS_Hände_desinfektion_gel_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_K%C3%BChlfl%C3%BCssigkeit_HKF_15.1_MW_65_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">7. SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">8. SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Oregon_Kettenhaftoel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">9. SDS_Oregon_Kettenhaftoel_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Presto_Spr%C3%BChfett_Weis_400_ML_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">10. SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">11. SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">12. SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">13. SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Universalprimer_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">14. SDS_Universalprimer_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Zement_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">15. SDS_Zement_DE.pdf</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_arecal_Marker_USD_Basic_DE.PDF" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">16. SDS_arecal_Marker_USD_Basic_DE.PDF</span></a></li>
+<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_%C3%96lbinder_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">17. SDS_Ölbinder_DE.pdf</span></a></li>
+</ul>
+</section>
+</div>
+
+        <div class="footer">ENPROM HSEQ</div>
+</main>
+
+    <script>
+        function toggle(el) {
+            el.classList.toggle("active");
+        }
+
+        document.getElementById("search").addEventListener("input", function (event) {
+            const filter = event.target.value.toLowerCase();
+            const categories = document.querySelectorAll(".category-item");
+
+            categories.forEach((category) => {
+                const items = category.querySelectorAll(".file-item");
+                let hasMatch = false;
+
+                items.forEach((item) => {
+                    const text = item.textContent.toLowerCase();
+                    const isMatch = text.includes(filter);
+                    item.classList.toggle("hidden", !isMatch);
+                    hasMatch = hasMatch || isMatch;
+                });
+
+                const header = category.querySelector(".category-header");
+                if (filter.length > 0) {
+                    category.classList.toggle("hidden", !hasMatch);
+                    header.classList.toggle("active", hasMatch);
+                } else {
+                    category.classList.remove("hidden");
+                    header.classList.add("active");
+                }
+            });
+        });
+
+        document.getElementById("downloadBtn").addEventListener("click", function () {
+            const links = document.querySelectorAll(".file-item");
+            const confirmed = confirm("Alle Sicherheitsdatenblätter offline herunterladen? Dies kann einen Moment dauern.");
+
+            if (!confirmed) {
+                return;
+            }
+
+            links.forEach((link, index) => {
+                setTimeout(() => {
+                    const anchor = document.createElement("a");
+                    anchor.href = link.href;
+                    anchor.setAttribute("download", "");
+                    document.body.appendChild(anchor);
+                    anchor.click();
+                    document.body.removeChild(anchor);
+                }, index * 1200);
+            });
+        });
+    </script>
+</body>
+</html>
