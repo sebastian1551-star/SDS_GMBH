@@ -29,6 +29,66 @@
             background: var(--bg);
             color: var(--text);
             font-family: "Segoe UI", Arial, sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        /* Tryb ramki smartfona do testów na PC */
+        body.phone-frame-mode {
+            background: #2b2b2b;
+            padding: 30px 10px;
+        }
+
+        body.phone-frame-mode .viewport-wrapper {
+            width: 100%;
+            max-width: 410px;
+            background: var(--bg);
+            border: 12px solid #1a1a1a;
+            border-radius: 40px;
+            padding: 15px 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        body.phone-frame-mode .viewport-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 14px;
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+
+        .view-controls {
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-size: 13px;
+        }
+
+        .view-toggle-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .view-toggle-btn:hover {
+            background: #005a9e;
         }
 
         .update-info {
@@ -47,25 +107,26 @@
         .acknowledgement-link {
             width: 100%;
             max-width: 550px;
-            min-height: 80px;
-            margin-bottom: 20px;
-            padding: 16px;
+            min-height: 70px;
+            margin-bottom: 15px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 12px;
             border: 1px solid #0d620d;
-            border-radius: 12px;
+            border-radius: 10px;
             background: var(--success);
             color: #fff;
             text-align: center;
             text-decoration: none;
             font-weight: 700;
+            font-size: 13px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .acknowledgement-icon {
-            font-size: 24px;
+            font-size: 20px;
             line-height: 1;
         }
 
@@ -88,33 +149,33 @@
         }
 
         .emergency-btn {
-            margin-bottom: 12px;
-            padding: 16px;
+            margin-bottom: 10px;
+            padding: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 2px solid #a4262c;
             background: var(--danger);
-            font-size: 18px;
+            font-size: 16px;
             text-decoration: none;
         }
 
         .download-all-btn {
-            margin-bottom: 15px;
-            padding: 14px;
+            margin-bottom: 12px;
+            padding: 12px;
             border: 0;
             background: #005a9e;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .search-box {
             width: 100%;
-            margin-bottom: 15px;
-            padding: 15px;
+            margin-bottom: 12px;
+            padding: 12px;
             border: 2px solid var(--primary);
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
             outline: none;
         }
 
@@ -123,7 +184,7 @@
         }
 
         .category-header {
-            padding: 12px;
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             gap: 12px;
@@ -132,6 +193,7 @@
             background: #faf9f8;
             cursor: pointer;
             font-weight: 700;
+            font-size: 13px;
         }
 
         .category-header.active {
@@ -161,13 +223,14 @@
         }
 
         .file-item {
-            padding: 12px;
+            padding: 10px 12px;
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #f3f2f1;
             color: var(--text);
             text-decoration: none;
             transition: background 0.2s;
+            cursor: pointer;
         }
 
         .file-item:hover,
@@ -188,7 +251,7 @@
 
         .product-name {
             overflow-wrap: anywhere;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
         }
 
@@ -197,67 +260,179 @@
         }
 
         .footer {
-            margin-top: 25px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 8px;
             border-top: 1px solid #eee;
             color: #a19f9d;
             text-align: center;
             font-size: 11px;
         }
+
+        /* Okno modalne do czytania PDF wewnątrz aplikacji */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .pdf-modal.open {
+            display: flex;
+        }
+
+        .pdf-modal-content {
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+
+        .pdf-modal-header {
+            background: #1f1f1f;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pdf-close-btn {
+            background: var(--danger);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+        }
 </style>
 </head>
 <body>
-<div class="update-info">
-<span>Letzte Aktualisierung der Datenbank:</span>
-<span class="update-value">07.07.2026</span>
-</div>
 
-    <a class="acknowledgement-link" href="#" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
-<span class="acknowledgement-icon" aria-hidden="true">✓</span>
-<span>KENNTNISNAHME DER SICHERHEITSDATENBLÄTTER</span>
-</a>
+    <!-- Panel kontrolny widoku (przełącznik trybu smartfona) -->
+    <div class="view-controls" id="viewControls">
+        <span>Tryb podglądu na PC:</span>
+        <button class="view-toggle-btn" id="toggleViewBtn" onclick="togglePhoneMode()">📱 Widok Smartfona</button>
+    </div>
 
-    <main class="app-container">
-<a href="tel:112" class="emergency-btn">NOTRUF: 112</a>
+    <div class="viewport-wrapper" id="viewportWrapper">
+        <div class="update-info">
+            <span>Letzte Aktualisierung der Datenbank:</span>
+            <span class="update-value">07.07.2026</span>
+        </div>
 
-        <button id="downloadBtn" class="download-all-btn">ALLE KARTEN HERUNTERLADEN (OFFLINE)</button>
+        <a class="acknowledgement-link" href="#" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
+            <span class="acknowledgement-icon" aria-hidden="true">✓</span>
+            <span>KENNTNISNAHME DER SICHERHEITSDATENBLÄTTER</span>
+        </a>
 
-        <input type="text" id="search" class="search-box" placeholder="Produkt oder Dateiname suchen...">
+        <main class="app-container">
+            <a href="tel:112" class="emergency-btn">NOTRUF: 112</a>
 
-        <div class="tree-container">
-<section class="category-item">
-<div class="category-header active" onclick="toggle(this)">
-<span>SICHERHEITSDATENBLÄTTER GMBH (19)</span>
-<span class="arrow">▼</span>
-</div>
-<ul class="submenu">
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_AdBlue_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">1. SDS_AdBlue_aral_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Benzin_aral_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">2. SDS_Benzin_aral_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">3. SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">4. SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Granit_S%C3%A4gekettenhaft%C3%B6l_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">5. SDS_Granit_Sägekettenhaftöl_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_H%C3%A4nde_desinfektion_gel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">6. SDS_Hände_desinfektion_gel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_K%C3%BChlfl%C3%BCssigkeit_HKF_15.1_MW_65_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">7. SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">8. SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Oregon_Kettenhaftoel_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">9. SDS_Oregon_Kettenhaftoel_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Presto_Spr%C3%BChfett_Weis_400_ML_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">10. SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">11. SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">12. SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">13. SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Universalprimer_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">14. SDS_Universalprimer_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Zement_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">15. SDS_Zement_DE.pdf</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_arecal_Marker_USD_Basic_DE.PDF" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">16. SDS_arecal_Marker_USD_Basic_DE.PDF</span></a></li>
-<li><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_%C3%96lbinder_DE.pdf" class="file-item" target="_blank" rel="noopener"><span class="pdf-tag">PDF</span><span class="product-name">17. SDS_Ölbinder_DE.pdf</span></a></li>
-</ul>
-</section>
-</div>
+            <button id="downloadBtn" class="download-all-btn">ALLE KARTEN HERUNTERLADEN (OFFLINE)</button>
 
-        <div class="footer">ENPROM HSEQ</div>
-</main>
+            <input type="text" id="search" class="search-box" placeholder="Produkt oder Dateiname suchen...">
+
+            <div class="tree-container">
+                <section class="category-item">
+                    <div class="category-header active" onclick="toggle(this)">
+                        <span>SICHERHEITSDATENBLÄTTER GMBH (17)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="submenu">
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_AdBlue_aral_DE.pdf', '1. SDS_AdBlue_aral_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">1. SDS_AdBlue_aral_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Benzin_aral_DE.pdf', '2. SDS_Benzin_aral_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">2. SDS_Benzin_aral_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf', '3. SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">3. SDS_DC_Next_Klarlack_gl_sdm_400ml_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf', '4. SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">4. SDS_FSG_Industrie_Reiniger_Typ_A_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Granit_S%C3%A4gekettenhaft%C3%B6l_DE.pdf', '5. SDS_Granit_Sägekettenhaftöl_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">5. SDS_Granit_Sägekettenhaftöl_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_H%C3%A4nde_desinfektion_gel_DE.pdf', '6. SDS_Hände_desinfektion_gel_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">6. SDS_Hände_desinfektion_gel_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_K%C3%BChlfl%C3%BCssigkeit_HKF_15.1_MW_65_DE.pdf', '7. SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">7. SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf', '8. SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">8. SDS_NIGRIN_MoS2_Graphit_Schmiermittel_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Oregon_Kettenhaftoel_DE.pdf', '9. SDS_Oregon_Kettenhaftoel_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">9. SDS_Oregon_Kettenhaftoel_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Presto_Spr%C3%BChfett_Weis_400_ML_DE.pdf', '10. SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">10. SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf', '11. SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">11. SDS_Spray_Trig-a-cap_Orginal_Fluo_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf', '12. SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">12. SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf', '13. SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">13. SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Universalprimer_DE.pdf', '14. SDS_Universalprimer_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">14. SDS_Universalprimer_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_Zement_DE.pdf', '15. SDS_Zement_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">15. SDS_Zement_DE.pdf</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_arecal_Marker_USD_Basic_DE.PDF', '16. SDS_arecal_Marker_USD_Basic_DE.PDF')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">16. SDS_arecal_Marker_USD_Basic_DE.PDF</span></a></li>
+                        <li><a onclick="openPdfModal('https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_%C3%96lbinder_DE.pdf', '17. SDS_Ölbinder_DE.pdf')" class="file-item"><span class="pdf-tag">PDF</span><span class="product-name">17. SDS_Ölbinder_DE.pdf</span></a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="footer">ENPROM HSEQ</div>
+        </main>
+    </div>
+
+    <!-- Wbudowany Czytnik PDF (Modal) -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <span id="pdfModalTitle">Dokument PDF</span>
+                <button class="pdf-close-btn" onclick="closePdfModal()">Zamknij ✕</button>
+            </div>
+            <iframe id="pdfIframe" class="pdf-iframe" src=""></iframe>
+        </div>
+    </div>
 
     <script>
         function toggle(el) {
             el.classList.toggle("active");
+        }
+
+        let isPhoneMode = false;
+        function togglePhoneMode() {
+            isPhoneMode = !isPhoneMode;
+            const body = document.body;
+            const btn = document.getElementById("toggleViewBtn");
+
+            if (isPhoneMode) {
+                body.classList.add("phone-frame-mode");
+                btn.textContent = "💻 Pełny Ekran";
+            } else {
+                body.classList.remove("phone-frame-mode");
+                btn.textContent = "📱 Widok Smartfona";
+            }
+        }
+
+        function openPdfModal(url, title) {
+            const modal = document.getElementById("pdfModal");
+            const iframe = document.getElementById("pdfIframe");
+            const titleSpan = document.getElementById("pdfModalTitle");
+
+            titleSpan.textContent = title;
+            iframe.src = url;
+            modal.classList.add("open");
+        }
+
+        function closePdfModal() {
+            const modal = document.getElementById("pdfModal");
+            const iframe = document.getElementById("pdfIframe");
+            modal.classList.remove("open");
+            iframe.src = "";
         }
 
         document.getElementById("search").addEventListener("input", function (event) {
@@ -287,22 +462,26 @@
         });
 
         document.getElementById("downloadBtn").addEventListener("click", function () {
-            const links = document.querySelectorAll(".file-item");
+            const items = document.querySelectorAll(".file-item");
             const confirmed = confirm("Alle Sicherheitsdatenblätter offline herunterladen? Dies kann einen Moment dauern.");
 
-            if (!confirmed) {
-                return;
-            }
+            if (!confirmed) return;
 
-            links.forEach((link, index) => {
-                setTimeout(() => {
-                    const anchor = document.createElement("a");
-                    anchor.href = link.href;
-                    anchor.setAttribute("download", "");
-                    document.body.appendChild(anchor);
-                    anchor.click();
-                    document.body.removeChild(anchor);
-                }, index * 1200);
+            items.forEach((item, index) => {
+                const onclickAttr = item.getAttribute("onclick");
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/'([^']+)'/);
+                    if (match && match[1]) {
+                        setTimeout(() => {
+                            const anchor = document.createElement("a");
+                            anchor.href = match[1];
+                            anchor.setAttribute("download", "");
+                            document.body.appendChild(anchor);
+                            anchor.click();
+                            document.body.removeChild(anchor);
+                        }, index * 1200);
+                    }
+                }
             });
         });
     </script>
