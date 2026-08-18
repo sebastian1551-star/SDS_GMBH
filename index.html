@@ -130,34 +130,15 @@
             border: 1px solid var(--line);
             border-radius: 6px;
             background: #faf9f8;
-            cursor: pointer;
             font-weight: 700;
         }
 
-        .category-header.active {
-            background: #f3f2f1;
-        }
-
-        .arrow {
-            flex: 0 0 auto;
-            color: var(--muted);
-            transition: transform 0.3s;
-        }
-
-        .category-header.active .arrow {
-            transform: rotate(180deg);
-        }
-
         .submenu {
-            display: none;
+            display: block;
             margin: 0 0 0 5px;
             padding: 0;
             border-left: 2px solid var(--primary);
             list-style: none;
-        }
-
-        .category-header.active + .submenu {
-            display: block;
         }
 
         .file-item {
@@ -241,7 +222,7 @@
 <span class="update-value">07.07.2026</span>
 </div>
 
-    <a class="acknowledgement-link" href="#" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
+    <a class="acknowledgement-link" href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBZxPnQQ0eMRJGrshtg-xkDARsjAhaa6n4TLGw63KTdO0g?e=vnYAfG" target="_blank" rel="noopener" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
 <span class="acknowledgement-icon" aria-hidden="true">✓</span>
 <span>KENNTNISNAHME DER SICHERHEITSDATENBLÄTTER</span>
 </a>
@@ -255,9 +236,8 @@
 
         <div class="tree-container">
 <section class="category-item">
-<div class="category-header active" onclick="toggle(this)">
+<div class="category-header">
 <span>SICHERHEITSDATENBLÄTTER GMBH (34)</span>
-<span class="arrow">▼</span>
 </div>
 <ul class="submenu">
 <li>
@@ -628,7 +608,7 @@
         <div class="file-row">
             <div class="file-main-content">
                 <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCm8BXTDNyTSaxUYfAHUl7HATGwxDQGH10uWd0MzyqY5Zs?e=Ohr97o" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">Technischesdatenblatt_GEHOTEX_W20B_DKX_Hydro_DE.pdf</a>
+                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCm8BXTDNyTSaxUYfAHUl7HATGwxDQGH10uWd0MzyqY5Zs?e=Ohr97o" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_GEHOTEX_W20B_DKX_Hydro_DE.pdf</a>
             </div>
             <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCm8BXTDNyTSaxUYfAHUl7HATGwxDQGH10uWd0MzyqY5Zs?e=Ohr97o" class="sharepoint-btn" target="_blank" rel="noopener">Kartenbeschreibung</a>
         </div>
@@ -642,10 +622,6 @@
 </main>
 
     <script>
-        function toggle(el) {
-            el.classList.toggle("active");
-        }
-
         document.getElementById("search").addEventListener("input", function (event) {
             const filter = event.target.value.toLowerCase();
             const categories = document.querySelectorAll(".category-item");
@@ -661,14 +637,7 @@
                     hasMatch = hasMatch || isMatch;
                 });
 
-                const header = category.querySelector(".category-header");
-                if (filter.length > 0) {
-                    category.classList.toggle("hidden", !hasMatch);
-                    header.classList.toggle("active", hasMatch);
-                } else {
-                    category.classList.remove("hidden");
-                    header.classList.add("active");
-                }
+                category.classList.toggle("hidden", filter.length > 0 && !hasMatch);
             });
         });
 
