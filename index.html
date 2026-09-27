@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ENPROM Sicherheitsdatenblätter</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0078d4">
 <style>
         :root {
             --primary: #0078d4;
@@ -78,16 +80,12 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .emergency-btn,
-        .download-all-btn {
+        .emergency-btn {
             width: 100%;
             border-radius: 8px;
             color: #fff;
             font-weight: 700;
             text-align: center;
-        }
-
-        .emergency-btn {
             margin-bottom: 12px;
             padding: 16px;
             display: flex;
@@ -97,15 +95,6 @@
             background: var(--danger);
             font-size: 18px;
             text-decoration: none;
-        }
-
-        .download-all-btn {
-            margin-bottom: 15px;
-            padding: 14px;
-            border: 0;
-            background: #005a9e;
-            cursor: pointer;
-            font-size: 14px;
         }
 
         .search-box {
@@ -206,15 +195,16 @@
 <span class="update-value">18.08.2026</span>
 </div>
 
-    <a class="acknowledgement-link" href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBZxPnQQ0eMRJGrshtg-xkDARsjAhaa6n4TLGw63KTdO0g?e=vnYAfG" target="_blank" rel="noopener" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
+    <div id="offline-status" class="update-info" style="display:none;"></div>
+
+    <!-- TODO: link ersetzen durch die raw-URL der Datei "unterweisung-mitarbeiter-sicherheitsdatenblaetter.pdf", sobald sie im Repo liegt -->
+    <a class="acknowledgement-link" href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/unterweisung-mitarbeiter-sicherheitsdatenblaetter.pdf" target="_blank" rel="noopener" aria-label="Kenntnisnahme der Sicherheitsdatenblätter">
 <span class="acknowledgement-icon" aria-hidden="true">✓</span>
 <span>KENNTNISNAHME DER SICHERHEITSDATENBLÄTTER</span>
 </a>
 
     <main class="app-container">
 <a href="tel:112" class="emergency-btn">NOTRUF: 112</a>
-
-        <button id="downloadBtn" class="download-all-btn">ALLE KARTEN HERUNTERLADEN (OFFLINE)</button>
 
         <input type="text" id="search" class="search-box" placeholder="Produkt oder Dateiname suchen...">
 
@@ -224,346 +214,40 @@
 <span>SICHERHEITSDATENBLÄTTER GMBH (34)</span>
 </div>
 <ul class="submenu">
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAXg7j82AuqS7mt6jvzCV4HAR-0HfOANDhpJpi69juRv40?e=dC6QqL" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Trockengleit spray_PTFE 300_ml_Würth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQDIcaGCSDWWTaXqiJktOwuNAR0ocC4Yfw00UUoUcOdxZUE?e=POgbos" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_AdBlue_aral_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCwrVeNT1kLRZxMj9zJTad2AR7m2ThH7Pb8hJRgoQ0nEcY?e=7db7dS" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_arecal_Marker_USD_Basic_DE.PDF</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQABQuSnzZjOS6g5FXuFfayPAUyiBfWc5rWJ3h-9ReTg5s4?e=F2RWQ1" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Benzin_aral_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBoiHo3RA-zT4G2y9i62ICLAV5ot0Jqgq-6mrsqM70QDPw?e=RNIZa8" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Bremsenreiniger_Wuerth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQB5OUNIpM_6Qpj5Se2upDDBAUxFYUfgXWFpd-q02hLjXWY?e=NrpPwX" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Cut_Cool_Bohr_und_Schneidoel_400_ml_Würth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQA8WP-y1ycoSJSmFSsciEtNAfo6UI3qzttSDvlSDbgsEgE?e=77h9Ax" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_DC_Next Klarlack_gl_sdm_400ml_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAcqJU1jLbPQY92lnJGZuWjATfMupiQU6sEnkJp09uC7Z0?e=Tl8SZA" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Dieselkraftstoff_aral_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCfD_FmL7-4T5vzbPa0bYh-AdT5bDEPkpZoLDM47DxFj0I?e=m2Ewow" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_DUPLI_COLOR_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQB3O7FsrcE1RqI6xpynaaEuAeqtscYmCquIAEc_UFCMsp0?e=6djQ9Y" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_FSG_Industrie Reiniger_Typ A_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBx9gMnwI-gQa0GvdXez42fAVzJq-cCtGaD3AeVKLg8tLE?e=UgKKm2" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Fuchs_Titan_syn_mc_10w_40_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCq_7k1zacGT4GBB75hq_U7AZBZ0vgwTI7VHAZDtjHoFv8?e=Gc2Nqj" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Granit_Sägekettenhaftöl_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAhFtvXr4UIQ4fEkJeuBr4cAZEnZJgZS4xW9yzCku2pJg0?e=EsJPxC" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Hände desinfektion_gel_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCIMdzQO42ZTLyyYDH9IMO1ATrSwcy0yNt1vc7j_jfmzts?e=UHLmve" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_HHS_2000_Wuerth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQArlM3nvypVQrRTFyhHeErxARRijEkIlET3Bzfu26Kj1W8?e=wS0xyx" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCtTzFEcH4VRJ80h0YJS1tPAeESiF15jrMwizBAl7g7t0M?e=BXoHBD" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Langzeitfeet_III_Würth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQC-ykrPwbvzSodbqG8DhVwVAUaNe5sZMq9ra6gh29_odEc?e=FvkFaH" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Methanol_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBvvM8JSoLHQbGaQ25ZXWUiAXdX_Yz9RKXbIpDXxzT-6UA?e=iumDFW" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_MOSQUITOS_Tenzi_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAQODnEPvb3QqlubiHqyQL5AUJBJXBpila-84bvUjNjRSA?e=eci3Gu" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_NIGRIN_MoS2_Graphit Schmiermittel_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQDz7DvKVk1xQpB0MdKQ0VvJAZZkLihf7EMC40ZjdJQRTP4?e=zDaQZS" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_NOXy_Police_Ad_Blue_Grupa_Azoty_PL.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQB9HljAhe3pQJBt7OybT00zAV8tndDeIMew-Bzjol0c0cY?e=VsDqtX" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Ölbinder_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQDKCTkJbwP1QZUyCutPtHJgAbKe9oznhIljABmN2QTqwP8?e=g6L7eY" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Oregon_Kettenhaftoel_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQD1eSxYCALAS6KI5p7E73gfAdf3PXMjrTzRmyOYqvy72e8?e=TZMWk6" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAkT8yXba9sTLQB406DVeOKAXf9nAy0zB2zRNBGllJmhU0?e=M9chTH" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Robbyrob_Scheibenfrostschutz_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQAZhJEto_PqT72EMLq80ewbAZHXxKY0bCt4h68C1EXwAog?e=qTaMHC" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Saegekettenhaftoel_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQDA7TBYivOXRrjFhny4jjJBARVHXzANTn0gGuh4rNXSVr8?e=UHcPHE" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Spray_Trig_a_cap_Orginal_Fluo_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQC_2l4CMOuRSryvbqYgfmMaAWU5RKiP-a-FI4uvfPmqq-0?e=xeUPZk" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Strassenmarkierer_Wuerth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCOo0vLf4FARYNJHwXN90M5AVysS0NYSAUbKMmavxVHGlI?e=Hi7V7i" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Super_enteiser_spray_500 ml_Würth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCu1VuRPY4PSZ0IeNrVxG_LAUk4E7aGdYuAmgeaWIq0q_w?e=zud9c2" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQASXXoZuQodTZtu-KiPQHtqAUcnK304DKvd6kDkA6hzhUo?e=3Eok84" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCjLhdkHh7IQq-jmkW9Bz4vAdqBORyC28AARJAlBZF6APo?e=g8gEvn" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Universalprimer_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQBXjNz8hkDPR6JVGCRikiqlAdcb8vHXQoeeEV9gtV8BVtI?e=1vdqhz" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Zement_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCUC6CbFbWGTIPzNASQ7-0MAdmU8TM07KMT3lDl_Uc8kR0?e=iSi0VN" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Zinkspray_400_ml_Würth_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
-<li>
-    <div class="file-item">
-        <div class="file-row">
-            <div class="file-main-content">
-                <span class="pdf-tag">PDF</span>
-                <a href="https://enprom365.sharepoint.com/:b:/s/M365_Ochronarodowiska/IQCm8BXTDNyTSaxUYfAHUl7HATGwxDQGH10uWd0MzyqY5Zs?e=Ohr97o" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_GEHOTEX_W20B_DKX_Hydro_DE.pdf</a>
-            </div>
-        </div>
-    </div>
-</li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/01-adblue-aral-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_AdBlue_aral_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/02-arecal-marker-usd-basic-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_arecal_Marker_USD_Basic_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/03-benzin-aral-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Benzin_aral_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/04-bremsenreiniger-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Bremsenreiniger_Wuerth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/05-cut-cool-bohr-und-schneideoel-400ml-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Cut_Cool_Bohr_und_Schneidoel_400_ml_Würth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/06-dc-next-klarlack-400ml-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_DC_Next Klarlack_gl_sdm_400ml_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/07-dieselkraftstoff-aral-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Dieselkraftstoff_aral_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/08-dupli-color-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_DUPLI_COLOR_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/09-fsg-industrie-reiniger-typ-a-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_FSG_Industrie Reiniger_Typ A_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/10-fuchs-titan-syn-mc-10w-40-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Fuchs_Titan_syn_mc_10w_40_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/11-granit-saegekettenhaftoel-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Granit_Sägekettenhaftöl_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/12-haendedesinfektion-gel-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Hände desinfektion_gel_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/14-hhs-2000-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_HHS_2000_Wuerth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/15-kuehlfluessigkeit-hkf-15-1-mw-65-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Kühlflüssigkeit_HKF_15.1_MW_65_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/16-langzeitfeet-iii-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Langzeitfeet_III_Würth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/17-methanol-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Methanol_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/18-mosquitos-tenzi-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_MOSQUITOS_Tenzi_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/19-nigrin-mos2-graphit-schmiermittel-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_NIGRIN_MoS2_Graphit Schmiermittel_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/20-noxy-police-adblue-grupa-azoty-pl.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_NOXy_Police_Ad_Blue_Grupa_Azoty_PL.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/21-oelbinder-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Ölbinder_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/22-oregon-kettenhaftoel-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Oregon_Kettenhaftoel_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/23-presto-spruehfett-weis-400ml-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Presto_Sprühfett_Weis_400_ML_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/24-robbyrob-scheibenfrostschutz-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Robbyrob_Scheibenfrostschutz_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/25-saegekettenhaftoel-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Saegekettenhaftoel_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/26-spray-trig-a-cap-orginal-fluo-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Spray_Trig_a_cap_Orginal_Fluo_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/27-strassenmarkierer-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Strassenmarkierer_Wuerth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/28-super-enteiser-spray-500ml-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Super_enteiser_spray_500 ml_Würth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/29-technischesdatenblatt-gehotex-w20b-dkx-hydro-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_GEHOTEX_W20B_DKX_Hydro_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/30-trockengleitspray-ptfe-300ml-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Trockengleit spray_PTFE 300_ml_Würth_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/31-uhu-alleskleber-kraft-125g-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_UHU_alleskleber_kraft_tube_125g_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/32-uhu-spezialsekundenkleber-porzellan-keramik-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_UHU_spezialsekundenkleber_porzellan_keramik_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/33-universalprimer-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Universalprimer_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/34-zement-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Zement_DE.pdf</a></div></div></div></li>
+<li><div class="file-item"><div class="file-row"><div class="file-main-content"><span class="pdf-tag">PDF</span><a href="https://raw.githubusercontent.com/sebastian1551-star/SDS_GMBH/main/SDS_2026_GMBH/35-zinkspray-400ml-wuerth-de.pdf" target="_blank" rel="noopener" class="product-name" style="text-decoration: none; color: inherit;">SDS_Zinkspray_400_ml_Würth_DE.pdf</a></div></div></div></li>
 </ul>
 </section>
 </div>
@@ -591,25 +275,31 @@
             });
         });
 
-        document.getElementById("downloadBtn").addEventListener("click", function () {
-            const links = document.querySelectorAll(".file-main-content a.product-name");
-            const confirmed = confirm("Alle Sicherheitsdatenblätter offline herunterladen? Dies kann einen Moment dauern.");
+        // Service Worker registrieren fuer Offline-Modus
+        const statusBox = document.getElementById("offline-status");
+        function showStatus(text) {
+            statusBox.textContent = text;
+            statusBox.style.display = "block";
+        }
 
-            if (!confirmed) {
-                return;
+        if ("serviceWorker" in navigator) {
+            if (location.protocol === "https:" || location.hostname === "localhost") {
+                navigator.serviceWorker.register("sw.js").then(() => {
+                    showStatus("Offline-Modus wird im Hintergrund vorbereitet ...");
+                    navigator.serviceWorker.ready.then(() => {
+                        setTimeout(() => showStatus("Karten sind für den Offline-Zugriff gespeichert."), 4000);
+                    });
+                }).catch(() => {
+                    showStatus("Offline-Modus konnte nicht aktiviert werden.");
+                });
             }
+        }
 
-            links.forEach((link, index) => {
-                setTimeout(() => {
-                    const anchor = document.createElement("a");
-                    anchor.href = link.href;
-                    anchor.setAttribute("download", "");
-                    document.body.appendChild(anchor);
-                    anchor.click();
-                    document.body.removeChild(anchor);
-                }, index * 1200);
-            });
-        });
+        if (!navigator.onLine) {
+            showStatus("Offline-Modus aktiv – gespeicherte Karten werden angezeigt.");
+        }
+        window.addEventListener("offline", () => showStatus("Offline-Modus aktiv – gespeicherte Karten werden angezeigt."));
+        window.addEventListener("online", () => statusBox.style.display = "none");
     </script>
 </body>
 </html>
